@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}MadLibs Form{% endblock %}
+
+{% block content %}
+<h1>Fill In The Madness</h1>
+<div id="form_container">
+<form id="mad_form" action="/go_mad">
+    <div id="input_container">
+        {% for prompt in prompts %}
+        <label for="{{ prompt }}">{{ prompt.replace('_', ' ').capitalize() }}: <input name="{{ prompt }}" type="text"></label>
+        {% endfor %}
+    </div>
+    <button name="with_blanks" value="with_blanks">Submit</button>
+</form>
+</div>
+{% endblock %}
